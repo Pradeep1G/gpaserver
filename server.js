@@ -5,6 +5,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const app = express();
+const PORT = process.env.PORT || 3005
 
 
 app.use(express.json());
@@ -65,7 +66,7 @@ app.get("/course/semdata", (req, res) => {
     // res.send("Express here");
 });
 
-app.listen(3005, function() {
+app.listen(PORT, function() {
     console.log("Server is running.....");
 });
 
