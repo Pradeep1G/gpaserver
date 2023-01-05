@@ -6,6 +6,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const app = express();
 const PORT = process.env.PORT || 3005
+const BASE_URL = process.env.BASE_URL
 
 
 app.use(express.json());
@@ -42,9 +43,7 @@ const dat_schema = new mongoose.Schema(
         Course_Credit: String
 
 
-//         coursecode: String,
-//         coursename: String,
-//         coursecredit: Number
+
     });
 
 const dat = mongoose.model("CSESem1", dat_schema);
