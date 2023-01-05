@@ -36,23 +36,23 @@ function(err, db) {
 
 // const semdata = "";
 
-// const dat_schema = new mongoose.Schema(
-//     {
-//         Course_Code: String,
-//         Course_Name: String,
-//         Course_Credit: String
+const dat_schema = new mongoose.Schema(
+    {
+        Course_Code: String,
+        Course_Name: String,
+        Course_Credit: String
 
 
 
-//     });
+    });
 
-// const dat = mongoose.model("CSESem1", dat_schema);
+const dat = mongoose.model("CSESem1", dat_schema);
 
-// const newdat = new dat({
-//     Course_Code: "S1",
-//     Course_Name: "S1name",
-//     Course_Credit: "3"
-// });
+const newdat = new dat({
+    Course_Code: "S1",
+    Course_Name: "S1name",
+    Course_Credit: "3"
+});
 
 
 // newdat.save();
