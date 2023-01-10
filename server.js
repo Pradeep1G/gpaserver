@@ -41,12 +41,9 @@ const dat_schema = new mongoose.Schema(
         Course_Code: String,
         Course_Name: String,
         Course_Credit: String
-
-
-
     });
 
-const dat = mongoose.model("CSESem1", dat_schema);
+const dat = mongoose.model("ECEsem1", dat_schema);
 
 const newdat = new dat({
     Course_Code: "S1",
@@ -67,6 +64,8 @@ app.get("/course/semdata", (req, res) => {
     // res.send("Express here");
 });
 
+
+
 app.listen(PORT, function() {
     console.log("Server is running.....");
 });
@@ -74,10 +73,34 @@ app.listen(PORT, function() {
 console.log("guyrfae ra r");
 
 for(var i=1;i<9;i++){
-    getsemdata("CSEsem"+i)
+    getmecdata("MECsem"+i)
+    getecedata("ECEsem"+i)
+    getcsedata("CSEsem"+i)
 }
 
-function getsemdata(semdata){
+function getcsedata(semdata){
+    const dat = mongoose.model(semdata, dat_schema);
+    app.get("/course/"+semdata, (req, res) => {
+        dat.find({})
+        .then((items)=> {res.json(items)})
+        .catch((error)=> console.log(error));
+        console.log(res.statusCode);
+        // res.send("Express here");
+    });
+}
+
+function getecedata(semdata){
+    const dat = mongoose.model(semdata, dat_schema);
+    app.get("/course/"+semdata, (req, res) => {
+        dat.find({})
+        .then((items)=> {res.json(items); console.log(items)})
+        .catch((error)=> console.log(error));
+        console.log(res.statusCode);
+        // res.send("Express here");
+    });
+}
+
+function getmecdata(semdata){
     const dat = mongoose.model(semdata, dat_schema);
     app.get("/course/"+semdata, (req, res) => {
         dat.find({})
